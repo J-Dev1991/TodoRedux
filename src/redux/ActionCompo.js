@@ -1,28 +1,24 @@
-export const ADD_TODO = 'ADD_TODO';
-export const DELETE_TODO = 'DELETE_TODO';
-export const  EDIT_TODO = 'EDIT_TODO';
+export const ADD_TODO = "ADD_TODO";
+export const DELETE_TODO = "DELETE_TODO";
+export const EDIT_TODO = "EDIT_TODO";
 
 export const addTodo = (todo) => {
-return {
+  return {
     type: ADD_TODO,
-    payload: todo
-}
- 
-}
+    payload: todo,
+  };
+};
 
 export const deleteTodo = (todoId) => {
-return{
+  return {
     type: DELETE_TODO,
-    payload: todoId
-}
-}
+    payload: todoId,
+  };
+};
 
 export const editTodo = (todoId) => {
-    return {
-        type: EDIT_TODO,
-        payload: todoId
-    }
-
-}
-
-
+  return {
+    type: EDIT_TODO,
+    payload: todoId,
+  };
+};

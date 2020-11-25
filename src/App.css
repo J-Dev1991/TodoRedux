@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+  margin: 0 auto;
+  border: 2px solid black;
+  margin: 4rem auto;
+  max-width: 55rem;
+  background: lightblue;
+  min-height: 15rem;
+}
+
+.form-main{
+  max-width: 45rem !important;
+  margin: 4rem auto;
+  margin-bottom: 1.5rem;
+  text-transform: capitalize;
+}
+
+select{
+  width: 5rem !important;
+}
+
+.input-text{
+  width: 35rem  !important;
+  border: 1px solid  aliceblue !important;
+}
+
+.input-text:focus{
+  border-color: none !important;
+  overflow: hidden;
+
+}
+
+.list-first-child{
+  max-width: 50rem !important;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+
+.list-ul{
+  list-style-type: none;
+}
+
+
+.form-item-parent-div{
+  background-color: snow;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+li{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 6px;
+}
+
+.para{
+padding-left: 5px;
+margin-bottom: 0.5rem !important;
+font-size: 1.2rem !important;
+}
+.span-wrap {
+ max-width: 8rem;
+}
+
+svg{
+  font-size: 1.5rem;
+  padding-right: 0.2rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+
+svg:hover{
+ fill: green;
+}
+
+.update-text{
+  width: 37rem;
+  margin-left: 8px;
+  margin-bottom: 5px;
+  border: 2px solid black !important;
+}
+
+.update-text:focus{
+  border-color: black !important;
+  box-shadow: none !important;
+}

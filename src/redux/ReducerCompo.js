@@ -1,46 +1,69 @@
-import {ADD_TODO, DELETE_TODO, EDIT_TODO} from "./ActionCompo";
-import {todos,deletedTodo} from "./StateCompo";
+//@ts-check
+import { ADD_TODO, DELETE_TODO, EDIT_TODO } from "./ActionCompo";
+// import { deletedTodo } from "./StateCompo";
 
+const todos = [
+  {
+    name: "ajibola",
+    id: 1,
+  },
+  {
+    name: "adeola",
+    id: 2,
+  },
+  {
+    name: "damola",
+    id: 3,
+  },
+];
 
-const reducer = (state = todos, action) =>{
-  let todo;
-  let deletedcart;
-  let newTodo;
-  let payloadEdit;
-switch(action.type){
+const reducer = (state = todos, action) => {
+  const cases = {
+    [ADD_TODO]: () => [...state, action.payload],
 
-    case ADD_TODO:
-          todo = [...state];
-            todo.push(action.payload);
-       return todo;
-       
-        case DELETE_TODO:
-            todo = [...state];
-             todo.filter((todo) => todo.id !== action.payload);
-            //  deletedcart = [todo];
-            //  console.log(deletedcart);
-            return todo;
-        
-            case EDIT_TODO:
-              todo = [...state];
-              let indexNum = -1;
-              for(let i = 0; i < todo.length; i++){
-                indexNum++;
-                if(todo[i].id === action.payload.id){
-                  break;
-                }
-              }
+    [DELETE_TODO]: () => state.filter((todo) => todo.id !== action.payload),
 
-              if(indexNum !==  -1){
-                todo[indexNum] = action.payload;
-                return todo;
-              }
-             return todo;
-// console.log(todo);
+    [EDIT_TODO]: () => {
+      const itemIndex = state.findIndex(
+        (todo) => todo.id === action.payload.id
+      );
 
-}
+      //Did not find the item, return original state
+      if (itemIndex === -1) {
+        return state;
+      }
 
-return state;
-}
+      const newTodos = [...state];
+      newTodos[itemIndex] = action.payload;
+      return newTodos;
+    },
+  };
+
+  return cases[action.type] ? cases[action.type]() : state;
+
+  // switch (action.type) {
+  //   case ADD_TODO:
+  //     return [...state, action.payload];
+
+  //   case DELETE_TODO:
+  //     return state.filter((todo) => todo.id !== action.payload);
+
+  //   case EDIT_TODO:
+  //     const itemIndex = state.findIndex(
+  //       (todo) => todo.id === action.payload.id
+  //     );
+
+  //     //Did not find the item, return original state
+  //     if (itemIndex === -1) {
+  //       return state;
+  //     }
+
+  //     const newTodos = [...state];
+  //     newTodos[itemIndex] = action.payload;
+  //     return newTodos;
+  // }
+
+  // return state;
+};
 
 export default reducer;
